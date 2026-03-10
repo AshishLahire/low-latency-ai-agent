@@ -1,0 +1,33 @@
+Here are some great test conversations to cover every requirement of the assignment:
+Basic RAG (Knowledge Base retrieval)
+
+"What is your return policy?"
+"How long does shipping take?"
+"What payment methods do you accept?"
+
+Customer + Order lookup
+
+"Hi, I'm Priya Sharma, my email is priya@example.com — where is my order?"
+"What's the status of my shipment?"
+"I want to cancel my order"
+
+Conversational state (this is the key test)
+Start rapid-fire without waiting for full replies:
+
+"Hi I'm Arjun"
+"arjun@example.com"
+"whats my order status"
+"can i cancel it"
+"how long will refund take"
+
+This tests if Ashi remembers context across turns — the assignment specifically evaluates this.
+Topic switching mid-conversation
+
+"My order hasn't arrived" → then immediately → "actually forget that, how do I reset my password?"
+
+Ashi should handle the switch gracefully without getting confused.
+Edge cases / hallucination test
+
+"What's my order ID HK-99999?" — Ashi should say she can't find it, NOT make something up
+"Do you offer same-day delivery?" — not in KB, so she should admit she doesn't know
+"Give me a 50% discount" — should decline politely

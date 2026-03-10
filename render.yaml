@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: helpkart-agent
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama3-8b-8192
+      - key: EMBEDDING_MODEL
+        value: all-MiniLM-L6-v2
+      - key: RAG_TOP_K
+        value: 3
+      - key: RAG_SIMILARITY_THRESHOLD
+        value: 0.35
+      - key: MAX_CONTEXT_TURNS
+        value: 10
+      - key: SUMMARY_TRIGGER_TURNS
+        value: 8
